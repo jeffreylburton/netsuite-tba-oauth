@@ -27,9 +27,9 @@ function NetSuiteOAuth(url, method, consumerKey, consumerSecret, tokenId, tokenS
             secret: consumerSecret
         },
         realm: account,
-        signature_method: 'HMAC-SHA1',
+        signature_method: 'HMAC-SHA256',
         hash_function(base_string, key) {
-            return crypto.createHmac('sha1', key).update(base_string).digest('base64');
+            return crypto.createHmac('sha256', key).update(base_string).digest('base64');
         }
     });
 
